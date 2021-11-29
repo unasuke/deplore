@@ -11,7 +11,8 @@
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@tauri-apps/api": "^1.0.0-beta.8",
-    "preact": "^10.5.13"
+    "preact": "^10.5.13",
+    "recoil": "^0.5.2"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.0.0",
