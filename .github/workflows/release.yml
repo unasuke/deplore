@@ -1,0 +1,98 @@
+name: release
+on:
+  push:
+    tags:
+      - "v*"
+jobs:
+  build_ubuntu:
+    runs-on: ubuntu-20.04
+    name: build on ubuntu
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.13.0"
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            src-tauri/target/
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}-cargo-${{ hashFiles('Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: sudo apt update && sudo apt install -y libpango1.0-dev libgtk-3-dev libsoup2.4-dev libwebkit2gtk-4.0-dev
+      - run: yarn install
+      - run: yarn run tauri build
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            src-tauri/target/release/bundle/deb/deplore_*_amd64.deb
+            src-tauri/target/release/bundle/appimage/deplore_*_amd64.AppImage
+              
+  build_macos:
+    runs-on: macos-11
+    name: build on macos
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.13.0"
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            src-tauri/target/
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}-cargo-${{ hashFiles('Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: yarn install
+      - run: yarn run tauri build
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            src-tauri/target/release/bundle/macos/deplore.app
+            src-tauri/target/release/bundle/dmg/deplore_*.dmg
+  build_windows:
+    runs-on: windows-2019
+    name: build on windows
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.13.0"
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            ~\.cargo\bin\
+            ~\.cargo\registry\index\
+            ~\.cargo\registry\cache\
+            ~\.cargo\git\db\
+            src-tauri\target\
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}-cargo-${{ hashFiles('Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: yarn install
+      - run: yarn run tauri build
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            src-tauri\target\release\deplore.exe
+            src-tauri\target\release\bundle\deplore_*.msi
