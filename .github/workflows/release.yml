@@ -95,4 +95,4 @@ jobs:
         with:
           files: |
             src-tauri\target\release\deplore.exe
-            src-tauri\target\release\bundle\deplore_*.msi
+            src-tauri\target\release\bundle\msi\deplore_*.msi
