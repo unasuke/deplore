@@ -1,12 +1,14 @@
 {
   "name": "deplore",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
     "tauri": "tauri"
   },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/unasuke/deplore",
   "dependencies": {
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
