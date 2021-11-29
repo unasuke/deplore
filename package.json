@@ -1,0 +1,20 @@
+{
+  "name": "deplore",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.0.0-beta.8",
+    "preact": "^10.5.13"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.0.0",
+    "@tauri-apps/cli": "^1.0.0-beta.10",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  }
+}
