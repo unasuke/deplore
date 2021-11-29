@@ -18,14 +18,14 @@ export function SettingModal() {
   const planRef = useRef(setting.plan);
   console.info("modal render", setting);
   useEffect(() => {
-    console.info("getconf", setting);
-    emit("getconf");
+    console.info("get-setting", setting);
+    emit("get-setting");
   }, []);
   useEffect(() => {
     const unlisten = once(
-      "getconf-callback",
+      "get-setting-callback",
       (event: { event: string; payload: string }) => {
-        console.info("getconf-callback", event);
+        console.info("get-setting-callback", event);
         const payload = JSON.parse(event.payload);
         setSetting({ ...setting, ...payload });
         setTranslate({
@@ -43,9 +43,9 @@ export function SettingModal() {
   const onSettingChange = (setting) => {
     const nextSetting = { ...setting, api_key: apikeyRef.current.value };
     console.info("onSettingChange", nextSetting);
-    emit("setconf", JSON.stringify(nextSetting));
+    emit("set-setting", JSON.stringify(nextSetting));
     setSetting(nextSetting);
-    emit("getconf");
+    emit("get-setting");
   };
   const onPlanSelected = (event) => {
     setSetting({ ...setting, plan: event.target.value });

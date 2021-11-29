@@ -16,7 +16,7 @@ async fn main() {
     .setup(move |app| {
       let window = app.get_window("main").unwrap();
       let window_ = window.clone();
-      window.listen("test", move |event| match &event.payload() {
+      window.listen("translate-request", move |event| match &event.payload() {
         Some(s) => {
           let v: Result<Value> = serde_json::from_str(&s);
           if let Ok(v) = v {
@@ -34,18 +34,21 @@ async fn main() {
               });
             });
             let recv = rx.recv().unwrap();
-            let _ = window_.emit("callback", recv.to_string());
+            let _ = window_.emit("translate-callback", recv.to_string());
           }
         }
         None => todo!(),
       });
       let window_2 = window.clone();
-      window.listen("getconf", move |event| {
+      window.listen("get-setting", move |event| {
         let conf = store::get().unwrap();
         dbg!(&conf);
-        let _ = window_2.emit("getconf-callback", serde_json::to_string(&conf).unwrap());
+        let _ = window_2.emit(
+          "get-setting-callback",
+          serde_json::to_string(&conf).unwrap(),
+        );
       });
-      window.listen("setconf", move |event| match &event.payload() {
+      window.listen("set-setting", move |event| match &event.payload() {
         Some(s) => {
           let c: Config = serde_json::from_str(&s).unwrap();
 

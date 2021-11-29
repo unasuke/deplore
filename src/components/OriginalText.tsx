@@ -11,7 +11,7 @@ function callTauri(state: {
   translatedTextLanguage: string;
 }) {
   try {
-    emit("test", translateStateToJSON(state));
+    emit("translate-request", translateStateToJSON(state));
   } catch (e) {
     console.trace(e);
   }

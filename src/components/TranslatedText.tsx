@@ -17,7 +17,7 @@ export function TranslatedText() {
   useEffect(() => {
     console.info("effect-translate", translate);
     const unlisten = once(
-      "callback",
+      "translate-callback",
       (event: { event: string; payload: string }) => {
         console.info("translate", translate);
         setTranslate({ ...translate, translatedText: event.payload });
