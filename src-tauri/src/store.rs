@@ -39,7 +39,20 @@ pub fn get() -> std::result::Result<Config, Box<dyn std::error::Error>> {
     let mut file = File::open(config_file)?;
     let mut contents = String::new();
     file.read_to_string(&mut contents)?;
-    let config: Config = toml::from_str(&contents)?;
+    dbg!(&contents);
+    let config = toml::from_str(&contents);
+    let config = match config {
+      Ok(config) => config,
+      Err(_) => {
+        dbg!("error on get conf");
+        Config {
+          api_key: "".to_string(),
+          plan: "free".to_string(),
+          target_language: "EN-US".to_string(),
+        }
+      }
+    };
+    dbg!(&config);
     Ok(config)
   } else {
     Err("Could not find config file".into())
