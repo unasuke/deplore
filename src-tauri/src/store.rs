@@ -1,7 +1,6 @@
 extern crate directories;
 use directories::ProjectDirs;
 use serde::{Deserialize, Serialize};
-use std::fmt::Result;
 use std::fs::DirBuilder;
 use std::fs::File;
 use std::io::ErrorKind;
@@ -57,7 +56,7 @@ fn prepare() {
       .unwrap();
 
     let f = File::open(config_path.config_dir().join(filename));
-    let f = match f {
+    let _f = match f {
       Ok(file) => file,
       Err(ref err) if err.kind() == ErrorKind::NotFound => {
         match File::create(config_path.config_dir().join(filename)) {

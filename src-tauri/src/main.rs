@@ -40,9 +40,8 @@ async fn main() {
         None => todo!(),
       });
       let window_2 = window.clone();
-      window.listen("get-setting", move |event| {
+      window.listen("get-setting", move |_| {
         let conf = store::get().unwrap();
-        dbg!(&conf);
         let _ = window_2.emit(
           "get-setting-callback",
           serde_json::to_string(&conf).unwrap(),
@@ -51,9 +50,7 @@ async fn main() {
       window.listen("set-setting", move |event| match &event.payload() {
         Some(s) => {
           let c: Config = serde_json::from_str(&s).unwrap();
-
-          dbg!(&c);
-          store::store(c);
+          let _ = store::store(c);
         }
         None => todo!(),
       });
