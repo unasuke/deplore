@@ -27,7 +27,7 @@ export function SettingModal() {
       (event: { event: string; payload: string }) => {
         console.info("get-setting-callback", event);
         const payload = JSON.parse(event.payload);
-        setSetting({ ...setting, ...payload });
+        setSetting({ ...setting, ...payload, open: false });
         setTranslate({
           ...translate,
           translatedTextLanguage: payload.target_language,
