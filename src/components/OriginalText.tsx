@@ -4,11 +4,13 @@ import { translateState } from "../atoms/translateState";
 import { debounce } from "mabiki";
 import { emit } from "@tauri-apps/api/event";
 import { translateStateToJSON } from "../util/state";
+import { sha256 } from "../util/digest";
 
 function callTauri(state: {
   originalText: string;
   originalTextLanguage: string;
   translatedTextLanguage: string;
+  digest: string;
 }) {
   try {
     emit("translate-request", translateStateToJSON(state));
@@ -20,10 +22,17 @@ function callTauri(state: {
 export function OriginalText() {
   const [translate, setTranslate] = useRecoilState(translateState);
   const onChange = debounce((event) => {
-    callTauri({ ...translate, originalText: event.target.value });
-    setTranslate({
-      ...translate,
-      originalText: event.target.value,
+    sha256(event.target.value).then((hash) => {
+      callTauri({
+        ...translate,
+        originalText: event.target.value,
+        digest: hash,
+      });
+      setTranslate({
+        ...translate,
+        originalText: event.target.value,
+        digest: hash,
+      });
     });
   }, 3000);
   return (

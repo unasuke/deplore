@@ -26,15 +26,11 @@ async fn main() {
               handle.block_on(async {
                 let config = store::get().unwrap();
                 let resp = translate::handle_translate_request((&v).to_string(), config).await;
-                let mut sentence = "".to_string();
-                for t in resp.translations.iter() {
-                  sentence += &t.text;
-                }
-                tx.send(sentence).unwrap();
+                tx.send(resp).unwrap();
               });
             });
             let recv = rx.recv().unwrap();
-            let _ = window_.emit("translate-callback", recv.to_string());
+            let _ = window_.emit("translate-callback", serde_json::to_string(&recv).unwrap());
           }
         }
         None => todo!(),

@@ -20,7 +20,11 @@ export function TranslatedText() {
       "translate-callback",
       (event: { event: string; payload: string }) => {
         console.info("translate", translate);
-        setTranslate({ ...translate, translatedText: event.payload });
+        const resp = JSON.parse(event.payload);
+        console.info(resp);
+        if (resp.digest === translate.digest) {
+          setTranslate({ ...translate, translatedText: resp.translated_text });
+        }
       }
     );
     return () => {

@@ -5,6 +5,7 @@ export const translateState = atom({
   default: {
     originalText: "",
     originalTextLanguage: "EN",
+    digest: "",
     translatedText: "",
     translatedTextLanguage: "EN-US",
   },
