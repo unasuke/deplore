@@ -25,7 +25,7 @@ export function OriginalText() {
       ...translate,
       originalText: event.target.value,
     });
-  }, 500);
+  }, 3000);
   return (
     <div class="flex-1 max-w-7xl sm:mx-auto px-2 sm:pl-6 sm:pr-3 lg:pl-8 lg:pr-4 flex flex-col">
       <div class="py-2 flex flex-row content-center items-center">
