@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - "*"
+  pull_request:
+    branches:
+      - "*"
 jobs:
   build_ubuntu:
     runs-on: ubuntu-20.04
