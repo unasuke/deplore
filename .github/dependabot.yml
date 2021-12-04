@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      day: saturday
+      time: "10:00"
+      timezone: "Asia/Tokyo"
+  - package-ecosystem: "cargo"
+    directory: "src-tauri"
+    schedule:
+      interval: "daily"
+      day: saturday
+      time: "10:00"
+      timezone: "Asia/Tokyo"
