@@ -52,7 +52,7 @@ export function TranslatedText() {
       </div>
       <div class="flex-grow pb-2 sm:pb-6 lg:pb-8">
         <textarea
-          class="shadow-sm focus:ring-indigo-499 focus:border-indigo-500 block w-full sm:text-base border-gray-300 rounded-md h-full p-1"
+          class="shadow-sm focus:ring-indigo-499 focus:border-indigo-500 block w-full sm:text-base border-gray-300 rounded-md h-full p-1 sm:leading-relaxed"
           value={translate.translatedText}
         ></textarea>
       </div>
