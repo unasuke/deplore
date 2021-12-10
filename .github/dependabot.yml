@@ -7,8 +7,8 @@ updates:
       day: saturday
       time: "10:00"
       timezone: "Asia/Tokyo"
-      reviewers:
-        - unasuke
+    reviewers:
+      - unasuke
   - package-ecosystem: "cargo"
     directory: "src-tauri"
     schedule:
@@ -16,5 +16,5 @@ updates:
       day: saturday
       time: "10:00"
       timezone: "Asia/Tokyo"
-      reviewers:
-        - unasuke
+    reviewers:
+      - unasuke
