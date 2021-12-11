@@ -5,6 +5,7 @@
 
 use serde_json::{Result, Value};
 use tauri::Manager;
+mod menu;
 mod store;
 mod translate;
 use store::Config;
@@ -52,6 +53,7 @@ async fn main() {
       });
       Ok(())
     })
+    .menu(menu::default())
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
