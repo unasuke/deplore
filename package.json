@@ -17,7 +17,7 @@
     "recoil": "^0.5.2"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.0.0",
+    "@preact/preset-vite": "^2.1.6",
     "@tauri-apps/cli": "^1.0.0-beta.10",
     "autoprefixer": "^10.4.0",
     "mabiki": "^1.0.1",

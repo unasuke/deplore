@@ -262,13 +262,14 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@preact/preset-vite@^2.0.0":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@preact/preset-vite/-/preset-vite-2.1.5.tgz#bbeb53bcbd3e4290f6fdbb5669f186e740780cb3"
-  integrity sha512-G+Op0d940lVwOH93Tkhz4BTgE88VpQBFWHqnz8QjHpo6IwmfP3HHQJHrp9dEt5Di2f2HQ4bpmhDqBl7+bzir6g==
+"@preact/preset-vite@^2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@preact/preset-vite/-/preset-vite-2.1.6.tgz#ecdf03d38b87d6f2b50ae8b0519dac795e4a3f3e"
+  integrity sha512-LXibh/xVY3TzJGIq56VlPIo1glg8xgpnWnIQ2x9pKZxUBpJ9/NUrLLcvlRwwgC+k7+vQ6O6OigvGYgrfoKBqLQ==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.14.9"
-    "@prefresh/vite" "^2.2.3"
+    "@prefresh/vite" "^2.2.6"
+    "@rollup/pluginutils" "^4.1.1"
     babel-plugin-transform-hook-names "^1.0.2"
     debug "^4.3.1"
     kolorist "^1.2.10"
@@ -289,10 +290,10 @@
   resolved "https://registry.yarnpkg.com/@prefresh/utils/-/utils-1.1.1.tgz#ffe7f2e6bd48a0633631a3d92c0ee4bdeb0ac330"
   integrity sha512-MUhT5m2XNN5NsZl4GnpuvlzLo6VSTa/+wBfBd3fiWUvHGhv0GF9hnA1pd//v0uJaKwUnVRQ1hYElxCV7DtYsCQ==
 
-"@prefresh/vite@^2.2.3":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@prefresh/vite/-/vite-2.2.4.tgz#9f2a42b8e442a5c85a9c5f07079907ad9cc597fb"
-  integrity sha512-rBBb3tagdigz2ukSc5Rtg8PrbmdvEtJhE37FJRQdHISMcVdN1OkL4003eH2DEOA1231ydbGiKqpaKZisI+zSEg==
+"@prefresh/vite@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@prefresh/vite/-/vite-2.2.6.tgz#cea5a5e7fbdf5d6dedfeccafa0159931cdf44ac2"
+  integrity sha512-Q5i15C27NanIPzimkvBuzImebCxeQS6p8OyyH2QpNKS/HGsm7WpnyCzgMkIsidnmMHY59qllKwF01TWpq9IeGA==
   dependencies:
     "@babel/core" "^7.9.6"
     "@prefresh/babel-plugin" "0.4.1"
@@ -300,10 +301,10 @@
     "@prefresh/utils" "^1.0.0"
     "@rollup/pluginutils" "^4.1.0"
 
-"@rollup/pluginutils@^4.1.0":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.1.1.tgz#1d4da86dd4eded15656a57d933fda2b9a08d47ec"
-  integrity sha512-clDjivHqWGXi7u+0d2r2sBi4Ie6VLEAzWMIkvJLnDmxoOhBYOTfzGbOQBA32THHm11/LiJbd01tJUpJsbshSWQ==
+"@rollup/pluginutils@^4.1.0", "@rollup/pluginutils@^4.1.1":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.1.2.tgz#ed5821c15e5e05e32816f5fb9ec607cdf5a75751"
+  integrity sha512-ROn4qvkxP9SyPeHaf7uQC/GPFY6L/OWy9+bd9AwcjOAWQwxRscoEyAUD8qCY5o5iL4jqQwoLk2kaTKJPb/HwzQ==
   dependencies:
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
