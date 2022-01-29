@@ -1,6 +1,7 @@
 # Changelog
 ## unreleased
-- Add loading spinner #48
+- Add loading spinner [#48](https://github.com/unasuke/deplore/pull/48)
+- Update some dependencies
 
 ## v0.3.0
 - Update some dependencies
