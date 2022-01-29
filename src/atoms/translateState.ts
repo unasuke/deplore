@@ -8,5 +8,6 @@ export const translateState = atom({
     digest: "",
     translatedText: "",
     translatedTextLanguage: "EN-US",
+    translating: false,
   },
 });

@@ -23,7 +23,11 @@ export function TranslatedText() {
         const resp = JSON.parse(event.payload);
         console.info(resp);
         if (resp.digest === translate.digest) {
-          setTranslate({ ...translate, translatedText: resp.translated_text });
+          setTranslate({
+            ...translate,
+            translatedText: resp.translated_text,
+            translating: false,
+          });
         }
       }
     );
@@ -50,11 +54,18 @@ export function TranslatedText() {
           <CogIcon className="h-9 w-9 text-gray-700 cursor-pointer ml-2" />
         </div>
       </div>
-      <div class="flex-grow pb-2 sm:pb-6 lg:pb-8">
+      <div class="flex-grow pb-2 sm:pb-6 lg:pb-8 relative">
         <textarea
-          class="shadow-sm focus:ring-indigo-499 focus:border-indigo-500 block w-full sm:text-base border-gray-300 rounded-md h-full p-1 sm:leading-relaxed"
+          class={`shadow-sm focus:ring-indigo-498 focus:border-indigo-499 block w-full sm:text-base border-gray-300 rounded-md h-full p-1 sm:leading-relaxed ${
+            translate.translating ? "bg-gray-100" : ""
+          }`}
           value={translate.translatedText}
         ></textarea>
+        {translate.translating && (
+          <div className="flex justify-center items-center absolute bottom-0 top-0 left-0 right-0 p-6">
+            <div className="animate-ping h-4 w-4 bg-gray-600 rounded-full"></div>
+          </div>
+        )}
       </div>
     </div>
   );
