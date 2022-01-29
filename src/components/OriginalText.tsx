@@ -31,6 +31,7 @@ export function OriginalText() {
       setTranslate({
         ...translate,
         originalText: event.target.value,
+        translating: true,
         digest: hash,
       });
     });
