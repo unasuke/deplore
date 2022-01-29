@@ -1,4 +1,7 @@
 # Changelog
+## unreleased
+- Add loading spinner #48
+
 ## v0.3.0
 - Update some dependencies
 - [Add an edit menu & enable keyboard shortcuts at macOS by chiastolite](https://github.com/unasuke/deplore/pull/10)
