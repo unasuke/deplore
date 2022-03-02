@@ -4,6 +4,7 @@ import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { SourceLanguages, TargetLanguages } from "../const/Languages";
 import { useRecoilState } from "recoil";
 import { translateState } from "../atoms/translateState";
+import { callTauri } from "../util/callTauri";
 
 type LanguageType = "original" | "translated";
 
@@ -41,6 +42,11 @@ export function LanguageSelectMenu({ langType }: { langType: LanguageType }) {
       langType === "original" ? value.code : translate.originalTextLanguage;
     const target =
       langType === "translated" ? value.code : translate.translatedTextLanguage;
+    callTauri({
+      ...translate,
+      originalTextLanguage: orig,
+      translatedTextLanguage: target,
+    });
     setTranslate({
       ...translate,
       originalTextLanguage: orig,
