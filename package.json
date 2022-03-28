@@ -11,7 +11,7 @@
   "homepage": "https://github.com/unasuke/deplore",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
-    "@heroicons/react": "^1.0.5",
+    "@heroicons/react": "^1.0.6",
     "@tauri-apps/api": "^1.0.0-beta.8",
     "preact": "^10.6.6",
     "recoil": "^0.6.1"
