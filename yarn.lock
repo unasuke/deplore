@@ -366,10 +366,12 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@tauri-apps/api@^1.0.0-beta.8":
-  version "1.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@tauri-apps/api/-/api-1.0.0-beta.8.tgz#a43dc4a4515148f29bfb616db85445b771e84f78"
-  integrity sha512-a56lXB7XvQ4+fKtT0pxpkjTSKhyrQ1Vmjyvt2ox3mT9xw3l7s8IOKHJ1WuqW6TA6xdoy3Cyja3Z3prw8hflS7g==
+"@tauri-apps/api@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@tauri-apps/api/-/api-1.0.1.tgz#f516cf3b83139312141123c08f1d75260274da50"
+  integrity sha512-TJwKkXxtF52kN9Auu5TWD2AE4ssqTrsfdpIrixYwRb3gQ/FuYwvZjrMc9weYpgsW2cMhVNkvKgneNXF/4n04lw==
+  dependencies:
+    type-fest "2.13.1"
 
 "@tauri-apps/cli@^1.0.0-beta.10":
   version "1.0.0-beta.10"
@@ -3698,6 +3700,11 @@ tunnel-agent@^0.6.0:
   integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
   dependencies:
     safe-buffer "^5.0.1"
+
+type-fest@2.13.1:
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.13.1.tgz#621c84220df0e01a8469002594fc005714f0cfba"
+  integrity sha512-hXYyrPFwETT2swFLHeoKtJrvSF/ftG/sA15/8nGaLuaDGfVAaq8DYFpu4yOyV4tzp082WqnTEoMsm3flKMI2FQ==
 
 type-fest@^0.13.1:
   version "0.13.1"
